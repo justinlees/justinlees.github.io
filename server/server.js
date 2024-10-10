@@ -30,7 +30,7 @@ app.get("/freelancer/:fUser", async (req, res) => {
     return res.status(403).json({ message: "Token required" });
   }
 
-  jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, "mySecret", async (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid token" });
 
     const freelancer = await collectionF.findOne({ UserName: decoded.data });
@@ -45,7 +45,7 @@ app.get("/admin/:aUser", (req, res) => {
     return res.status(403).json({ message: "Token required" });
   }
 
-  jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, "mySecret", async (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid token" });
 
     const admin = await collectionA.findOne({ UserName: decoded.data });
@@ -60,7 +60,7 @@ app.get("/manager/:mUser", (req, res) => {
     return res.status(403).json({ message: "Token required" });
   }
 
-  jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, "mySecret", async (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid token" });
 
     const manager = await collectionM.findOne({ UserName: decoded.data });
@@ -75,7 +75,7 @@ app.get("/home/:userId", (req, res) => {
     return res.status(403).json({ message: "No token" });
   }
 
-  jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, "mySecret", async (err, decoded) => {
     if (err) res.status(403).json({ message: "Invalid Token" });
     if (decoded?.data) {
       const user = await collectionC.findOne({ UserName: decoded.data });
@@ -118,7 +118,7 @@ app.post("/login", async (req, res) => {
         {
           data: freelancer.UserName,
         },
-        process.env.REACT_APP_JWT_SECRET,
+        "mySecret",
         { expiresIn: "1hr" }
       );
 
@@ -132,7 +132,7 @@ app.post("/login", async (req, res) => {
         {
           data: admin.UserName,
         },
-        process.env.REACT_APP_JWT_SECRET,
+        "mySecret",
         { expiresIn: "1hr" }
       );
       res.send({ token, admin });
@@ -145,7 +145,7 @@ app.post("/login", async (req, res) => {
         {
           data: client.UserName,
         },
-        process.env.REACT_APP_JWT_SECRET,
+        "mySecret",
         { expiresIn: "1hr" }
       );
       res.send({ token, client });
@@ -158,7 +158,7 @@ app.post("/login", async (req, res) => {
         {
           data: manager.UserName,
         },
-        process.env.REACT_APP_JWT_SECRET,
+        "mySecret",
         { expiresIn: "1hr" }
       );
       res.send({ token, manager });
@@ -433,7 +433,7 @@ app.post("/updatePassword", async (req, res) => {
     return res.status(403).json({ message: "Token required" });
   }
 
-  jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, "mySecret", async (err, decoded) => {
     if (err) {
       return res.status(403).json({ message: "Invalid token" });
     }
