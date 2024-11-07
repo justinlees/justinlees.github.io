@@ -22,7 +22,7 @@
   position: fixed;
   margin-top: 8rem;
   left: 0;
-  background-color: whitesmoke;
+  background-color: rgb(240, 240, 240);
   z-index: 1;
 }
 
@@ -75,7 +75,7 @@
 .adminDashBoard .adminSideBar .middle li .NavLink {
   display: block;
   margin: 0 1rem;
-  -background-color: #cdcdcd;
+  -background-color: rgb(240, 240, 240);
   padding: 0.2rem 0.7rem;
   color: black;
   border-radius: 8px;
@@ -163,7 +163,7 @@
   width: 80%;
   padding: 1rem;
   border-radius: 8px;
-  background-color: #cdcdcd;
+  background-color: rgb(240, 240, 240);
 }
 
 .adminDashBoard .adminDetail .briefDetails .graph {
@@ -236,5 +236,5 @@
   width: 80%;
   padding: 1rem;
   border-radius: 8px;
-  background-color: #cdcdcd;
+  background-color: rgb(240, 240, 240);
 }

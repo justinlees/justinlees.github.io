@@ -9,7 +9,12 @@ export default function MessageEntry() {
       <h2>{lancerId.fUser}</h2>
       <Outlet />
       <Form method="post">
-        <input type="text" placeholder="message...." name="msgContent" />
+        <input
+          type="text"
+          placeholder="message...."
+          name="msgContent"
+          required
+        />
         <button type="submit">Send</button>
       </Form>
     </div>

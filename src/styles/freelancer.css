@@ -23,12 +23,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: rgb(240, 240, 240);
   position: fixed;
   left: 0;
   top: 4rem;
   z-index: 1;
-  box-shadow: 2px 1px 6px 0px #555;
 }
 
 .freelanceDashBoard .fSideBar .top {
@@ -116,7 +115,7 @@
   height: 80px;
   border-radius: 50%;
   padding: 0;
-  background-color: #cdcdcd;
+  background-color: rgb(240, 240, 240);
   border: 2px solid black;
 }
 
@@ -138,7 +137,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0rem 0rem 15rem;
+  margin: 2rem 0rem 0rem 17rem;
   color: black;
 }
 
@@ -158,7 +157,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0rem 0rem 15rem;
+  margin: 2rem 0rem 0rem 17rem;
   color: black;
 }
 
@@ -189,6 +188,37 @@
 
 /* <-- dashBoard top header */
 
+.freelanceDashBoard .freelanceDetail .top-nav {
+  display: flex;
+  align-items: center;
+  background-color: #dedede;
+  margin: 2rem 2rem 0rem 17rem;
+  /* padding-left: 1rem; */
+}
+
+.top-nav div {
+  width: 8rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: all 0.8s;
+}
+
+.top-nav .activeTasks div {
+  background-color: whitesmoke;
+  border-bottom: 4px solid tomato;
+  color: black;
+}
+
+/* top-nav ended */
+
 .freelanceDashBoard .freelanceDetail .briefDetails {
   width: 100%;
   height: 100%;
@@ -206,7 +236,7 @@
   border-radius: 8px;
   margin: 2rem 0rem 2rem 17rem;
   padding: 1rem;
-  background-color: #cdcdcd;
+  background-color: rgb(240, 240, 240);
 }
 
 .freelanceDashBoard .freelanceDetail .briefDetails .block1 * {
@@ -234,6 +264,18 @@
   align-items: center;
 }
 
+.freelanceDashBoard .freelanceTasks .acceptedRequests .acceptButtons button {
+  background-color: turquoise;
+  border: none;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 6px;
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .freelanceDashBoard .freelanceTasks .briefDetails .requestedClients button {
   width: 5rem;
   height: 2rem;
@@ -259,20 +301,28 @@
 }
 
 .freelanceDashBoard .messageDisplay .lancerMsg {
-  background-color: black;
-  color: whitesmoke;
   width: 10rem;
-  margin: 1rem;
+  margin: 8px;
   padding: 6px;
-  margin-left: auto;
   border-radius: 6px;
+  background-color: white;
+  color: black;
+  margin-left: auto;
 }
 
 .messageDisplay .clientMsg {
-  color: black;
-  background-color: whitesmoke;
   width: 10rem;
-  margin: 1rem;
+  margin: 8px;
   padding: 6px;
   border-radius: 6px;
+  background-color: black;
+  color: whitesmoke;
+}
+
+.acceptedTasks .taskInfo {
+  background-color: whitesmoke;
+}
+
+.acceptedTasks .taskInfo section {
+  margin: 0.5rem;
 }

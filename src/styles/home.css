@@ -90,40 +90,71 @@
   margin-top: 1rem;
 }
 
-.HomePage .MainPage .freelancerData form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 2rem;
+.HomePage .requestPage {
+  margin: 2rem;
 }
 
-.HomePage .MainPage .freelancerData input {
+.HomePage .requestPage ul {
+  list-style-type: none;
+}
+
+.HomePage .requestPage form input {
   display: none;
 }
 
-.HomePage .MainPage .freelancerData button {
-  width: 5rem;
-  height: 2rem;
-  background-color: tomato;
+.HomePage .requestPage form button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 6px;
   border: none;
-  box-shadow: 2px 2px #222;
-  border-radius: 8px;
-  cursor: pointer;
+  background-color: #111;
+  color: white;
+  margin: 2rem;
 }
+
+.HomePage .requestPage form .AboutTask {
+  display: block;
+  width: 14rem;
+  height: 4rem;
+  background-color: #ededed;
+  border: none;
+  margin: 1rem;
+}
+
+#TaskName {
+  height: 2rem;
+}
+
+#TaskDescription {
+  display: flex;
+  flex-flow: wrap;
+}
+
 .CmessageDisplay {
   width: 30rem;
   height: 20rem;
   overflow-y: scroll;
-  background-color: #cdcdcd;
+  background-color: rgb(240, 240, 240);
+}
+.CmessageEntry input {
+  border: none;
+  background-color: aliceblue;
+  width: 12rem;
+  height: 2rem;
+  padding: 0.2rem;
+}
+.CmessageEntry button {
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  padding: 0.2rem;
 }
 .CmessageDisplay .clientMsg {
   width: 10rem;
   margin: 8px;
   padding: 6px;
   border-radius: 6px;
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
   margin-left: auto;
 }

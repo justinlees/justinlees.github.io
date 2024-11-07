@@ -1,15 +1,27 @@
 import React from "react";
-import { useOutletContext, Link } from "react-router-dom";
+import { useOutletContext, Link, useParams } from "react-router-dom";
 
 export default function TaskInfo() {
   const taskInfo = useOutletContext();
+  const params = useParams();
+  const filterTasks = taskInfo.UserName === params.userId;
+
   return (
     <div className="taskInfo">
-      <section>{taskInfo?.taskName}</section>
-      <section>{taskInfo?.taskDescription}</section>
-      <Link to=".." relative="path">
-        back
-      </Link>
+      <section>{filterTasks?.taskName}</section>
+      <section>{filterTasks?.taskDescription}</section>
+      <section>
+        <Link
+          to="../.."
+          relative="path"
+          style={{
+            textDecoration: "none",
+            color: "blue",
+          }}
+        >
+          &larr; back
+        </Link>
+      </section>
     </div>
   );
 }

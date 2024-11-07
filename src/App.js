@@ -26,7 +26,11 @@ import MessageDisplay from "./components/User/MessageDisplay";
 import FreeLance, { Loader as Floader } from "./Layouts/Freelancer/freelancer";
 import FProfile from "./components/Freelancer/FProfile";
 import FdashBoard from "./components/Freelancer/fDashBoard";
-import FTasks, { Action as FAction } from "./components/Freelancer/FTasks";
+import FTasks from "./components/Freelancer/FTasks";
+import FacceptedTasks from "./components/Freelancer/FacceptedTasks";
+import FqueuedTasks, {
+  Action as QueuedAction,
+} from "./components/Freelancer/FqueuedTasks";
 import Earnings from "./components/Freelancer/Earnings";
 import TaskInfo from "./components/Freelancer/TaskInfo";
 import FMessages, {
@@ -123,11 +127,21 @@ const router = createBrowserRouter([
       {
         path: "tasks",
         element: <FTasks />,
-        action: FAction,
         children: [
           {
-            path: "taskInfo",
-            element: <TaskInfo />,
+            index: true,
+            element: <FqueuedTasks />,
+            action: QueuedAction,
+          },
+          {
+            path: "acceptedTasks",
+            element: <FacceptedTasks />,
+            children: [
+              {
+                path: ":userId/taskInfo",
+                element: <TaskInfo />,
+              },
+            ],
           },
         ],
       },

@@ -15,6 +15,8 @@ app.use(cors());
 
 mongoose.connect("mongodb://localhost:27017/JobDone");
 
+// get requests //
+
 app.get("/home/:userId/tasks", async (req, res) => {
   const requests = await collectionC.findOne({
     UserName: req.params.userId,
@@ -100,6 +102,8 @@ app.get("/home/:userId/tasks/:fUser/messages", async (req, res) => {
   });
   res.send(msgUpdate);
 });
+
+// post requests //
 
 app.post("/login", async (req, res) => {
   const { UserName, Password } = req.body;
@@ -217,6 +221,20 @@ app.post("/admin/:aUser/managersInfo", async (req, res) => {
   } else {
     const set = false;
     res.send(set);
+  }
+});
+
+app.post("/home/:userId", async (req, res) => {
+  const { searchSkill } = req.body;
+  const searchLancerSkill = await collectionF.find({ Skill: searchSkill });
+  const searchLancerId = await collectionF.findOne({ UserName: searchSkill });
+
+  if (!searchLancerSkill && !searchLancerId) {
+    res.send("");
+  } else if (searchLancerSkill) {
+    res.send(searchLancerSkill);
+  } else {
+    res.send(searchLancerId);
   }
 });
 

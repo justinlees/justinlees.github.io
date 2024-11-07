@@ -4,7 +4,6 @@ import axios from "axios";
 
 export default function CmessageDisplay() {
   const params = useParams();
-  //const clientMsg = useLoaderData();
   const [allMessages, setAllMessages] = React.useState("");
   React.useEffect(() => {
     axios
@@ -38,10 +37,3 @@ export default function CmessageDisplay() {
     </div>
   );
 }
-
-// export async function Loader({ params }) {
-//   const response = await axios.get(
-//     `http://localhost:5500/home/${params.userId}/tasks/${params.fUser}/messages`
-//   );
-//   if (response.data) return response.data;
-// }

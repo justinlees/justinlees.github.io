@@ -5,37 +5,54 @@ import axios from "axios";
 export default function RequestPage() {
   const params = useParams();
   const userData = useOutletContext();
-  const [lancerData, setLancerData] = React.useState([""]);
+  const filterData = userData.freelancer.filter(
+    (item) => item.UserName === params.fUser
+  );
 
   return (
     <div className="requestPage">
       <h1>Task Description Page</h1>
-      {userData.freelancer?.map((item) => {
-        if (item.UserName !== params.fUser) {
-          setLancerData(item);
-        }
-        return (
-          <div>
-            {item?.UserName}
-            {item?.FirstName}
-            {item?.LastName}
-            {item?.MobileNo}
+      {filterData?.map((item) => (
+        <div>
+          <div className="left">
+            <ul>
+              <li>
+                <b>{item?.UserName}</b>
+              </li>
+              <li>{item?.FirstName}</li>
+              <li>{item?.LastName}</li>
+              <li>{item?.MobileNo}</li>
+            </ul>
           </div>
-        );
-      })}
-
-      <Form method="post">
-        <input type="text" value={params.fUser} name="lancerId" />
-        <input type="text" value={userData.user.UserName} name="clientId" />
-        <input type="text" placeholder="TaskName" name="taskName" required />
-        <input
-          type="text"
-          placeholder="Task Description...."
-          name="taskDescription"
-          required
-        />
-        <button type="submit">Request</button>
-      </Form>
+          <div className="right">
+            <Form method="post">
+              <input type="text" value={params.fUser} name="lancerId" />
+              <input
+                type="text"
+                value={userData.user.UserName}
+                name="clientId"
+              />
+              <input
+                type="text"
+                placeholder="TaskName"
+                name="taskName"
+                required
+                className="AboutTask"
+                id="TaskName"
+              />
+              <input
+                type="text"
+                placeholder="Task Description...."
+                name="taskDescription"
+                required
+                className="AboutTask"
+                id="TaskDescription"
+              />
+              <button type="submit">Request</button>
+            </Form>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

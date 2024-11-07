@@ -14,8 +14,6 @@ export default function FMessageDisplay() {
       .then((res) => res)
       .then((data) => setMessages(data.data));
   });
-  console.log(allMessages);
-  //const sorted = allMessages?.allMessages;
   return (
     <div className="messageDisplay">
       <h1>Messages goes here</h1>
@@ -32,11 +30,3 @@ export default function FMessageDisplay() {
   );
 }
 
-// export async function Loader({ params }) {
-//   const response = await axios.get(
-//     `http://localhost:5500/freelancer/${params.fUser}/tasks/${params.userId}/messages`
-//   );
-//   if (response.data) {
-//     return response.data;
-//   }
-// }
