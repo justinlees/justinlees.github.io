@@ -4,29 +4,34 @@ import axios from "axios";
 
 export default function FMessageDisplay() {
   const params = useParams();
-  //const messages = useLoaderData();
   const [allMessages, setMessages] = React.useState("");
+  console.log(allMessages);
   React.useEffect(() => {
-    axios
-      .get(
-        `http://localhost:5500/freelancer/${params.fUser}/tasks/${params.userId}/messages`
-      )
-      .then((res) => res)
-      .then((data) => setMessages(data.data));
-  });
+    const messageFetch = () => {
+      axios
+        .get(
+          `http://localhost:5500/freelancer/${params.fUser}/tasks/${params.userId}/messages`
+        )
+        .then((res) => res)
+        .then((data) => setMessages(data.data));
+    };
+    setInterval(messageFetch, 300);
+  }, [params]);
+
   return (
     <div className="messageDisplay">
       <h1>Messages goes here</h1>
-      {allMessages?.allMessages?.map((item) => {
-        return (
+      {allMessages.allMessages ? (
+        allMessages.allMessages.map((item) => (
           <div
             className={item.userId === params.fUser ? "lancerMsg" : "clientMsg"}
           >
             <span>{item.msgContent}</span>
           </div>
-        );
-      })}
+        ))
+      ) : (
+        <p>loading</p>
+      )}
     </div>
   );
 }
-

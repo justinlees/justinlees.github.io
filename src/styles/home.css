@@ -1,6 +1,69 @@
 .HomePage {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  overflow: auto;
+  background-color: cyan;
+}
+
+.HomePage .topNav {
+  width: 100%;
+  height: 3rem;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background-color: #ededed;
+}
+
+.HomePage .topNav .left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.HomePage .topNav .left div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.HomePage .topNav .left div a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.HomePage .topNav .left .activeTasks {
+  background-color: whitesmoke;
+  border-bottom: 4px solid tomato;
+  color: black;
+}
+
+.queryNav {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.queryNav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #555;
+  border-radius: 6px;
 }
 
 .HomePage a {
@@ -12,12 +75,12 @@
 .MainPage {
   width: 100%;
   height: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  margin-top: 4rem;
-  overflow: auto;
-  background-color: whitesmoke;
+  align-items: center;
+  margin-top: 10rem;
+  background-color: brown;
 }
 
 .HomePage .MainPage .searchBar {
@@ -56,21 +119,25 @@
 
 .HomePage .MainPage .freelancersDisplay {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  align-items: center;
+  overflow: scroll;
+  margin-bottom: 9rem;
+  background-color: antiquewhite;
+  position: relative;
 }
 
 .HomePage .MainPage .freelancerData {
   width: 12rem;
   height: 17rem;
-  margin: 2rem;
   padding: 0.5rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   -border: 1px solid black;
   border-radius: 8px;
-  position: relative;
   background-color: white;
   box-shadow: 2px 2px 6px #555;
 }
@@ -89,6 +156,36 @@
   margin: auto;
   margin-top: 1rem;
 }
+
+.HomePage .MainPage .ClientTasks {
+  display: flex;
+  align-items: center;
+  background-color: #dedede;
+  margin: 2rem 2rem 0rem 17rem;
+}
+
+.top-nav div {
+  width: 8rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: all 0.8s;
+}
+
+.top-nav .activeTasks div {
+  background-color: whitesmoke;
+  border-bottom: 4px solid tomato;
+  color: black;
+}
+
+/* top-nav ended */
 
 .HomePage .requestPage {
   margin: 2rem;

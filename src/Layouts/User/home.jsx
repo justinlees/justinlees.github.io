@@ -26,19 +26,55 @@ function Home() {
       {filteredData ? (
         <>
           <Header />
-          <div className="topNav" style={{ zIndex: "5", marginTop: "5rem" }}>
-            <NavLink to="." end>
-              Home
-            </NavLink>
-            <NavLink to="tasks">Tasks</NavLink>
-            <NavLink>Profile</NavLink>
-            <NavLink>Settings</NavLink>
-            <NavLink>Payments</NavLink>
+          <div className="topNav">
+            <div className="left">
+              <div>
+                <NavLink
+                  to="."
+                  end
+                  className={({ isActive }) => (isActive ? "activeTasks" : "")}
+                >
+                  Home
+                </NavLink>
+              </div>
+              <div>
+                <NavLink
+                  to="tasks"
+                  className={({ isActive }) => (isActive ? "activeTasks" : "")}
+                >
+                  Tasks
+                </NavLink>
+              </div>
+
+              <div>
+                <NavLink
+                  to="profile"
+                  className={({ isActive }) => (isActive ? "activeTasks" : "")}
+                >
+                  Profile
+                </NavLink>
+              </div>
+
+              <div>
+                <NavLink
+                  to="payments"
+                  className={({ isActive }) => (isActive ? "activeTasks" : "")}
+                >
+                  Payments
+                </NavLink>
+              </div>
+
+              <div>
+                <NavLink
+                  to="settings"
+                  className={({ isActive }) => (isActive ? "activeTasks" : "")}
+                >
+                  Settings
+                </NavLink>
+              </div>
+            </div>
           </div>
-          <div className="queryNav">
-            <NavLink to="?Skill=Singer">Singers</NavLink>
-            <NavLink to="?Rating=4.2">Rating&lt;4.0</NavLink>
-          </div>
+
           <Outlet context={filteredData} />
         </>
       ) : (

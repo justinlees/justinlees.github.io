@@ -10,10 +10,7 @@ import Settings from "./components/Settings";
 /*Client Imports */
 import Home, { Loader as Cloader } from "./Layouts/User/home";
 import MainPage from "./components/User/MainPage";
-import CTasks, {
-  Loader as Tloader,
-  Action as TAction,
-} from "./components/User/CTasks";
+import CTasks, { Loader as Tloader } from "./components/User/CTasks";
 import MessageEntry, {
   Action as UentryAction,
 } from "./components/User/MessageEntry";
@@ -21,6 +18,10 @@ import RequestPage, {
   Action as RequestAction,
 } from "./components/User/RequestPage";
 import MessageDisplay from "./components/User/MessageDisplay";
+import CrequestedTasks, {
+  Action as RequestedAction,
+} from "./components/User/CrequestedTasks";
+import CacceptedTasks from "./components/User/CacceptedTasks";
 
 /* Freelancer Imports */
 import FreeLance, { Loader as Floader } from "./Layouts/Freelancer/freelancer";
@@ -74,6 +75,7 @@ const router = createBrowserRouter([
     element: <Login />,
     action: loginAction,
   },
+  //User routes
   {
     path: "/home/:userId",
     element: <Home />,
@@ -92,7 +94,17 @@ const router = createBrowserRouter([
         path: "tasks",
         element: <CTasks />,
         loader: Tloader,
-        action: TAction,
+        children: [
+          {
+            index: true,
+            element: <CrequestedTasks />,
+            action: RequestedAction,
+          },
+          {
+            path: "acceptedTasks",
+            element: <CacceptedTasks />,
+          },
+        ],
       },
       {
         path: "tasks/:fUser/messages",
